@@ -1,0 +1,5 @@
+body {
+  /* !important perlu ditambahkan karena jika tidak CSS tak akan berkerja */
+  /* Hal ini disebabkan karena sudah diterapkannya CSS external yang lain sehingga untuk menimpa / overwrite CSS external tersebut digunakan !important */
+  background-color: lightblue !important;
+}

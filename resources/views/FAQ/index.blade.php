@@ -1,6 +1,8 @@
 {{-- Main layout --}}
 @extends('mainLayout.main')
 
+{{-- CSS --}}
+<link rel="stylesheet" href="css/FAQ/style.css">
 
 @section('content')
     
