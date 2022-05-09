@@ -17,26 +17,54 @@
   
         <h1 class="h3 mb-3 fw-normal text-center">Registration</h1>
         
-        <form>
-          
+        <form action="/register" method="POST">
+          {{-- Cross Site Request Forgery --}}
+          @csrf
+
           <div class="form-floating">
-            <input type="text" name="name" class="form-control rounded-top" id="name" placeholder="Name">
+            {{-- Dokumentasi @error @enderror, is-invalid, dan invalid-feedback--}}
+            {{-- https://laravel.com/docs/9.x/validation --}}
+            {{-- https://getbootstrap.com/docs/5.0/forms/validation/ --}}
+
+            {{-- value="{{ old('') }}" => untuk tetap menampilkan hasil inputan ketika terdapat sebuah inputan yang tidak lolos--}}
+            
+            <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="Name" value="{{ old('name') }}">
             <label for="name">Name</label>
+            @error('name')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+            @enderror
           </div>
   
           <div class="form-floating">
-            <input type="text" name="username" class="form-control" id="username" placeholder="Usernam">
+            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" value="{{ old('username') }}">
             <label for="username">Username</label>
+            @error('username')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+            @enderror
           </div>
   
           <div class="form-floating">
-            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}">
             <label for="floatingInput">Email address</label>
+            @error('email')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+            @enderror
           </div>
           
           <div class="form-floating">
-            <input type="password" name="password" class="form-control rounded-bottom" id="password" placeholder="Password">
+            <input type="password" name="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" placeholder="Password">
             <label for="password">Password</label>
+            @error('password')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+            @enderror
           </div>
       
           <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>

@@ -11,4 +11,22 @@ class RegisterController extends Controller
             'title' => 'Dayu Jimpitan | Halaman Registrasi'
         ]);
     }
+    
+    public function store(Request $request) {
+        // Proses Validasi
+        $request->validate([
+            'name' => 'required|max:255',
+            'username' => ['required','min:3'],
+            'email' => 'required|email:dns',
+            'password' => 'required|min:5'
+        ]);
+    }
+    
+    // Cara Lain:
+    
+    /* 
+    public function store() {
+        return request()->all();
+    }
+    */
 }
