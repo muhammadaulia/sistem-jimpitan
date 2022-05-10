@@ -12,6 +12,18 @@
   <div class="row justify-content-center">
     <div class="col-lg-3">
   
+      {{-- Flash message --}}
+      @if (session()->has('success'))
+          
+      <div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+          {{ session('success') }}
+        </div>
+      </div>
+
+      @endif
+
       <main class="form-signin">
 
         <img class="my-3 rounded mx-auto d-block" src="/img/nature.jpg" alt="nature" width="300" height="200">

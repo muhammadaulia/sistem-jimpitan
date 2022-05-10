@@ -22,7 +22,7 @@
         <ul class="list-group">
           <li class="list-group-item">Email:</li>
           <li class="list-group-item">Username: {{ $user["name"] }}</li>
-          <li class="list-group-item">Account Created At:</li>
+          <li class="list-group-item">Account Created At: </li>
         </ul>
         </p>
       </div>
