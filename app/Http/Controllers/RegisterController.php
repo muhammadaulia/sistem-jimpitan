@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -14,13 +15,16 @@ class RegisterController extends Controller
     
     public function store(Request $request) {
         // Proses Validasi
-        $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|max:255',
             'username' => ['required','min:3'],
             'email' => 'required|email:dns',
             'password' => 'required|min:5'
         ]);
+        
+        User::create($validatedData);
     }
+
     
     // Cara Lain:
     
