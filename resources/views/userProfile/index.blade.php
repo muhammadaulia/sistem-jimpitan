@@ -6,31 +6,35 @@
 
 @section('content')
 
-@foreach ($foto as $user)
 
-<div class="justify-content-center">
-  
-  <div class="container-fluid">
-    <img src="img/{{ $user["image"] }}" class="image-fluid rounded mx-auto d-block" alt="{{ $user["name"] }}">
-  </div>
+<div class="container d-flex justify-content-start">
 
-  <section class="py-2 text-center container">
-    <div class="row py-lg-2">
+  <div class="container-fluid mt-3">
+    <img src="/img/txtyeonjun.jpg" class="rounded float-start" alt="yeonjun">
+    
+    <div class="container">
+      <div class="row py-md-3">
 
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">{{ $user["name"] }}</h1>
-        <ul class="list-group">
-          <li class="list-group-item">Email:</li>
-          <li class="list-group-item">Username: {{ $user["name"] }}</li>
-          <li class="list-group-item">Account Created At: </li>
-        </ul>
-        </p>
+        @if ($user->count())
+            
+        <div class="col-md-6 col-md-8 mx-auto">
+          <h1 class="fw-light">{{ $user[3]->name }}</h1>
+          <ul class="list-group">
+            <li class="list-group-item">Email: {{ $user[3]->email }}</li>
+            <li class="list-group-item">Username: {{ $user[3]->username }}</li>
+            <li class="list-group-item">Account Created At: {{ $user[3]->created_at->diffForHumans()}}</li>
+          </ul>
+        </div>
+      
+        @endif
+            
       </div>
     </div>
-  </section>
+
+  </div>
+
+
 
 </div>
-
-@endforeach
 
 @endsection
