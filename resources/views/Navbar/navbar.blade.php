@@ -11,7 +11,7 @@
           <a class="nav-link {{ ($title === 'Dayu Jimpitan | Halaman Home') ? 'active' : '' }}" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($title === 'Dayu Jimpitan | User Profile') ? 'active' : '' }}" href="/profile">User Profile</a>
+          <a class="nav-link {{ ($title === 'Dayu Jimpitan | User Profile') ? 'active' : '' }}" href="/profile">Registered User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($title === 'Dayu Jimpitan | Halaman FAQ') ? 'active' : '' }}" href="/faq">FAQ</a>
@@ -19,11 +19,35 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
+
+        {{-- Penerapan fitur milik user (login dan logout)--}}
+        @auth
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{-- Mengambil nama user yang sedang login --}}
+            Welcome back, {{ auth()->user()->name }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <form action="/logout" method="POST">
+                @csrf
+
+                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Logout</button>
+              </form>
+            </li>
+          </ul>
+        </li>
+
+        @else
+        
         <li class="nav-item">
           <a class="nav-link" href="/login">
             <i class="bi bi-box-arrow-in-right"></i> Login
           </a>
         </li>
+
+        @endauth
       </ul>
     </div>
   </div>

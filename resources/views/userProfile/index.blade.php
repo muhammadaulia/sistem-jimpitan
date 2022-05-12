@@ -7,34 +7,40 @@
 @section('content')
 
 
-<div class="container d-flex justify-content-start">
+<div class="container">
+  <div class="row">
 
-  <div class="container-fluid mt-3">
-    <img src="/img/txtyeonjun.jpg" class="rounded float-start" alt="yeonjun">
+    @foreach ($user as $member)
     
-    <div class="container">
-      <div class="row py-md-3">
+    {{-- Grid bootstrap --}}
+      <div class="col-md-3">
 
-        @if ($user->count())
+        <div class="card-deck">
+          <div class="card">
             
-        <div class="col-md-6 col-md-8 mx-auto">
-          <h1 class="fw-light">{{ $user[3]->name }}</h1>
-          <ul class="list-group">
-            <li class="list-group-item">Email: {{ $user[3]->email }}</li>
-            <li class="list-group-item">Username: {{ $user[3]->username }}</li>
-            <li class="list-group-item">Account Created At: {{ $user[3]->created_at->diffForHumans()}}</li>
-          </ul>
+            <div class="card-body">
+              <h5 class="card-title">Name:</h5>
+              <p class="card-text">
+                {{ $member["name"] }}
+              </p>
+              <p class="card-text">
+                <small class="text-muted">
+                  Username: {{ $member["username"] }}
+                </small>
+              </p>
+              <p class="card-text">
+                <small class="text-muted">
+                  Registered: {{ $member["created_at"]->diffForHumans() }}
+                </small>
+              </p>
+            </div>
+          </div>
         </div>
-      
-        @endif
-            
+
       </div>
-    </div>
+    @endforeach
 
   </div>
-
-
-
 </div>
 
 @endsection

@@ -23,7 +23,7 @@ class RegisterController extends Controller
     // Cara Lain:
     
     public function store(Request $request) {
-        // Proses Validasi
+        // Proses Validasi dan Registrasi Data User
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'username' => ['required','min:3'],

@@ -32,6 +32,7 @@
             <label for="name">Name</label>
             @error('name')
                 <div class="invalid-feedback">
+                  {{-- Menampilkan pesan error --}}
                   {{ $message }}
                 </div>
             @enderror
