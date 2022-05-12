@@ -1,3 +1,9 @@
+<style>
+  .navbar{
+    z-index: 2;
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <div class="container-fluid">
     <a class="navbar-brand" href="https://www.youtube.com/watch?v=kTJczUoc26U&ab_channel=TheKidLAROIVEVO"><i class="bi bi-cash-coin"></i> Dayu Jimpitan</a>
