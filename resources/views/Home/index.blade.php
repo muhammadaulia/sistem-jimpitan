@@ -11,18 +11,18 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="#myChart">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#tabelLaporan">
               <span data-feather="file"></span>
-              Orders
+              Tabel
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
               Products
@@ -45,13 +45,13 @@
               <span data-feather="layers"></span>
               Integrations
             </a>
-          </li>
+          </li> --}}
         </ul>
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Dashboard Utama</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -66,21 +66,27 @@
 
       {{-- Penggunaan Library ChartJs --}}
       <div>
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380">
+        <canvas class="my-5 w-100" id="myChart" width="900" height="380">
           <script>
             const labels = [
-              'January',
-              'February',
-              'March',
+              'Januari',
+              'Februari',
+              'Maret',
               'April',
-              'May',
-              'June',
+              'Mei',
+              'Juni',
+              'Juli',
+              'Agustus',
+              'September',
+              'Oktober',
+              'November',
+              'Desember',
             ];
           
             const data = {
               labels: labels,
               datasets: [{
-                label: 'My First dataset',
+                label: 'Jumlah Jimpitan',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: [0, 10, 5, 2, 20, 30, 45],
@@ -101,95 +107,105 @@
         </canvas>
       </div>
 
-      <h2>Section title</h2>
+      <div class="judulTabel">
+        <h2 id="tabelLaporan">Tabel Laporan</h2>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+              <th scope="col">Bulan</th>
+              <th scope="col">Minggu Ke-1</th>
+              <th scope="col">Minggu Ke-2</th>
+              <th scope="col">Minggu Ke-3</th>
+              <th scope="col">Minggu Ke-4</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
+              <td>Januari</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
+              <td>Rp 6.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
             </tr>
             <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
+              <td>Februari</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 3.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
+              <td>Rp 6.000.000,00</td>
             </tr>
             <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
+              <td>Maret</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
+              <td>Rp 5.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
             </tr>
             <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
+              <td>April</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
+              <td>Rp 3.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
             </tr>
             <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>dashboard</td>
+              <td>Mei</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 5.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
+              <td>Rp 3.000.000,00</td>
             </tr>
             <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>placeholder</td>
+              <td>Juni</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 7.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
+              <td>Rp 20.000.000,00</td>
             </tr>
             <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
+              <td>Juli</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 6.000.000,00</td>
+              <td>Rp 6.000.000,00</td>
+              <td>Rp 5.000.000,00</td>
             </tr>
             <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>irrelevant</td>
+              <td>Agustus</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
+              <td>Rp 3.000.000,00</td>
+              <td>Rp 7.000.000,00</td>
             </tr>
             <tr>
-              <td>1,008</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
+              <td>September</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 7.000.000,00</td>
+              <td>Rp 8.000.000,00</td>
+              <td>Rp 9.000.000,00</td>
             </tr>
             <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
+              <td>Oktober</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 10.000.000,00</td>
+              <td>Rp 12.000.000,00</td>
+              <td>Rp 1.000.000,00</td>
             </tr>
             <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
+              <td>November</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
+              <td>Rp 3.000.000,00</td>
+              <td>Rp 2.000.000,00</td>
+            </tr>
+            <tr>
+              <td>Desember</td>
+              <td>Rp 1.000.000,00</td>
+              <td>Rp 4.000.000,00</td>
+              <td>Rp 6.000.000,00</td>
+              <td>Rp 7.000.000,00</td>
             </tr>
           </tbody>
         </table>
