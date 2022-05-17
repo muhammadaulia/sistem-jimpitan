@@ -13,56 +13,46 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#myChart">
               <span data-feather="home"></span>
-              Dashboard
+              Chart
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#tabelLaporan">
               <span data-feather="file"></span>
-              Tabel
+              Tabel Keuangan
             </a>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart"></span>
-              Products
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Customers
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
-              Integrations
-            </a>
-          </li> --}}
         </ul>
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard Utama</h1>
+        <h1 class="h2">Chart Keuangan Dalam 1 Tahun</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
+          
+          <div class="dropdown">
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span data-feather="calendar"></span>
+              Minggu Ini
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Minggu Lalu</a>
+            </div>
+
+          </div>
         </div>
       </div>
+
+
+        
+      
+
+
 
       {{-- Penggunaan Library ChartJs --}}
       <div>
@@ -85,11 +75,13 @@
           
             const data = {
               labels: labels,
-              datasets: [{
+              datasets: [{ // index pertama / datasets[0]
                 label: 'Jumlah Jimpitan',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45],
+                data: [1000000, 2000000, 5000000, 2000000, 2500000, 3500000, 4500000],
+                showLine: true,
+                spanGaps: true,
               }]
             };
           
@@ -103,12 +95,41 @@
               document.getElementById('myChart'),
               config
             );
+
           </script>
         </canvas>
       </div>
 
+      <div class="d-flex justify-content-center">
+        <div class="row col-sm-2">
+
+          <label for="">Nominal Uang: </label>
+          <input id="nominal" type="number" placeholder="1000000">
+
+          <button class="btn btn-primary mt-3" id="pushInput" type="submit">Input</button>
+          
+        </div>
+      </div>
+
+      <script>
+        // Dynamic Data Dari Input
+        const pushInput = document.getElementById('pushInput');
+      
+        pushInput.addEventListener('click', pushValue);
+      
+        function pushValue() {
+          const nominalInput = document.getElementById('nominal');
+          
+          myChart.data.datasets[0].data.push(nominalInput.value);
+
+          myChart.update();
+        }
+
+      </script>
+
+
       <div class="judulTabel">
-        <h2 id="tabelLaporan">Tabel Laporan</h2>
+        <h2 id="tabelLaporan">Tabel Keuangan</h2>
       </div>
 
       <div class="table-responsive">
@@ -213,6 +234,5 @@
     </main>
   </div>
 </div>
-
 
 @endsection

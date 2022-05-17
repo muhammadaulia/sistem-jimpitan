@@ -45,8 +45,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 // Halaman User Profile
 Route::get('/profile', [UserModelController::class, 'index'])->middleware('auth');
 
-// Halaman Contact
-Route::get('/faq', [FAQController::class, 'index'])->middleware('auth');
+// Halaman FAQ
+Route::get('/faq', [FAQController::class, 'index']);
 
 // Halaman My Dashboard
 Route::get('/dashboard', [MyDashboardController::class, 'index'])->middleware('auth');
