@@ -143,15 +143,22 @@
               <th scope="col">Minggu Ke-4</th>
             </tr>
           </thead>
+
           <tbody>
+            @foreach ($keuangan as $item)
+            
             <tr>
-              <td>Januari</td>
-              <td>Rp 1.000.000,00</td>
-              <td>Rp 4.000.000,00</td>
-              <td>Rp 6.000.000,00</td>
-              <td>Rp 2.000.000,00</td>
+              <td>{{ $item['bulan'] }}</td>
+              <td>Rp. {{ $item['minggu1'] }}</td>
+              <td>Rp. {{ $item['minggu2'] }}</td>
+              <td>Rp. {{ $item['minggu3'] }}</td>
+              <td>Rp. {{ $item['minggu4'] }}</td>
             </tr>
-            <tr>
+            
+            @endforeach
+                
+            
+            {{-- <tr>
               <td>Februari</td>
               <td>Rp 1.000.000,00</td>
               <td>Rp 3.000.000,00</td>
@@ -227,7 +234,7 @@
               <td>Rp 4.000.000,00</td>
               <td>Rp 6.000.000,00</td>
               <td>Rp 7.000.000,00</td>
-            </tr>
+            </tr> --}}
           </tbody>
         </table>
       </div>
